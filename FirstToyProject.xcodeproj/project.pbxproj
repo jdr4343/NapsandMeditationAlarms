@@ -41,6 +41,7 @@
 		409018B62695B09B00B652A8 /* FirstToyProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FirstToyProject.xcdatamodel; sourceTree = "<group>"; };
 		409018B92695B23E00B652A8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		40DACE6C268B2BF000594E1D /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
+		40DD25732697737C008C37D0 /* FirstToyProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FirstToyProject.entitlements; sourceTree = "<group>"; };
 		40E9E5D0267E0AC200B21B41 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +75,7 @@
 		4035C90E267CC53900781320 /* FirstToyProject */ = {
 			isa = PBXGroup;
 			children = (
+				40DD25732697737C008C37D0 /* FirstToyProject.entitlements */,
 				409018B82695B22800B652A8 /* Data */,
 				40826618268F141400068FC9 /* Home */,
 				40826617268F13F400068FC9 /* Target */,
@@ -370,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FirstToyProject/FirstToyProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = FirstToyProject/Info.plist;
@@ -379,6 +382,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jihun.FirstToyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FirstToyProject/FirstToyProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = FirstToyProject/Info.plist;
@@ -398,6 +403,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jihun.FirstToyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
