@@ -9,16 +9,20 @@ import UIKit
 
 class ComposeViewController: UIViewController {
 
+    var editTarget: Memo?
+    //보기화면에서 편집버튼을 탭하면 메모가 이속성으로 전달됩니다. 이속성에 memo가 저장되어 있다면 편집화면으로 동작해야합니다.그리고 목록화면에서 +버튼을 탭하면 전달되는 메모가 없습니다 다시말해서 이속성이 닐이고 이때는 새메모 쓰기 모드로 동작해야 합니다.
+    var originalMemoContent: String?
     
     @IBAction func cancelBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         //모달방식을 닫을때는 dismiss 메소드를 사용.
     }
     
-    @IBOutlet weak var MemoTextView: UITextView!
+    @IBOutlet weak var memoTextView: UITextView!
     
     @IBAction func SaveBtn(_ sender: Any) {
-        guard let memo = MemoTextView.text, memo.count > 0 else {
+        
+        guard let memo = memoTextView.text,memo.count > 0 else {
             alert(message: "메모를 입력하세요")
             return
             //사용자가 메모를 입력하지 않으면 경고창이 표시되고 메소드가 종료 됩니다.반대로 메모를 정상적으로 입력했다면 가드문 다음에 있는 코드가 실행 됩니다.
@@ -26,10 +30,23 @@ class ComposeViewController: UIViewController {
         
        //let newMemo = Memo(content: memo)
        //Memo.dummyMemoList.append(newMemo)
+   
+        //새로운 메모를 계속 저장 편집 모드인 경우에는 새로운 메모를 추가하는게 아니라 편집한 내용을 저장하도록 바꿔야 합니다.
+        if let target = editTarget {
+            target.content = memo
+            DataManager.shared.saveContext()
+            NotificationCenter.default.post(name: ComposeViewController.memodidChange, object: nil)
+        } else {
+            //DaraManager에서 만든 addNewmemo 호출
+                DataManager.shared.addNewMemo(memo)
+            NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+            // 이코드는 라디오 방송국에서 라디오 방송을 브로드캐스트하는것과 같습니다.
+            
+        }
+       
         
-        NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
-        // 이코드는 라디오 방송국에서 라디오 방송을 브로드캐스트하는것과 같습니다.  
         dismiss(animated: true, completion: nil)
+      
     }
     
     
@@ -37,13 +54,63 @@ class ComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//이 메소드는 뷰컨트롤러가 생성된 다음에 호출됩니다. 보통 한번만 실행되는 초기화 코드는 여기에서 구현합니다./
+        if let memo = editTarget {
+            //editTarget 속성에 memo가 저장되어 있다면 title을 memo 편집으로 설정하고 textview에 편집할 memo를 편집하겠습니다.
+            navigationItem.title = "메모 편집"
+            memoTextView.text = memo.content
+            originalMemoContent = memo.content
+        }else{
+            navigationItem.title = "새 메모"
+            memoTextView.text = " "
+            //반대로 전달됨 메모가 없다면 그냥 쓰기 모드입니다. 그러면 Navigationtitle은 새 메모로 설정하고 textView는 빈 문자열로 초기화 하겠습니다.
+        }
+        memoTextView.delegate = self
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //우리가 원하는 기능을 구현하기 위해서는 presentationController.delegate 추가로 설정해야합니다.
+       navigationController?.presentationController?.delegate = self
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.presentationController?.delegate = nil
+        //이렇게 하면 편집화면이 표시되기 직전에 delegate로 설정되었다가 편집화면이 사라지기 직전에 delegate가 해제 됩니다.
+    }
+}
+extension ComposeViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        //이메소드는 텍스트 뷰에서 텍스트를 편집할떄마다 반복적으로 호출됩니다.
+        if let original = originalMemoContent, let edited = textView.text {
+            isModalInPresentation = original != edited
+            //오리지날 메모와 편집된 내용이 다를때 isModalInPresentation 속성에 트루를 저장하겠습니다.
+        
+        }
+    }
+}
 
+extension ComposeViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        //텍스트 뷰에서 메모를 편집하면 조금전에 구현했던 textViewDidChange가 호출되고 오리지날 메모와 편집된 메모가 다르다면 isModalInPresentation 속성에 트루가 저장됩니다. 이상태에서 시트를 풀다운 하면 시트가 사라지지 않고 \ 이메소드가 호출됩니다.
+        //경고창 추가 저장과 취소를 선택
+        let alert = UIAlertController(title: "알림", message: "편집한 내용을 저장할까요?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) { [weak self] (action) in
+            self?.SaveBtn(action)
+        }
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { [weak self] (action) in
+            self?.cancelBtn(action)
+        }
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ComposeViewController {
     static let newMemoDidInsert = Notification.Name(rawValue: "newMamoDidInsert")
     //라디오 방송국의 주파수 라고 생각하면 됨 라디오는 주파수로 구분하지만 노티는 이름으로 구분함
+    static let memodidChange = Notification.Name("memoDidChange")
 }

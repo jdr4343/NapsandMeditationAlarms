@@ -41,7 +41,15 @@ class DataManager {// 싱글톤으로 구현
     }
     //데이터를 읽어오는 코드는 완성 되었습니다.이제 TableView가 memoList배열에 저장되어 있는 메모를 표시하도록 수정 하겠습니다.
     
-    
+    func addNewMemo(_ memo: String?) {
+        let newMemo = Memo(context: mainContenxt) // 메모 인스턴스 코어데이터가 만들어준 클래스입니다.그래서 새로운 인스턴스를 만들떄 생성자로 contenxt를 전달해야 합니다.
+        newMemo.content = memo
+        newMemo.insertDate = Date()
+        
+        memoList.insert(newMemo, at: 0)
+        //이렇게 배열 가장 앞부분에 새로운 메모를 추가하면 캐치메모 메소드를 다시 호출 한것과 동일한 결과를 얻을수 있습니다.불필요한 데이터 베이스 작업이 생략되기 떄문에 조금더 효율적 입니다.
+        saveContext()
+    }
     
     
     
