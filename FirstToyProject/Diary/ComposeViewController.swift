@@ -48,8 +48,16 @@ class ComposeViewController: UIViewController {
         dismiss(animated: true, completion: nil)
       
     }
-    
-    
+    // 글이 길어질경우 키보드에 글이 가려 수정이 어려운 문제 해결.
+    var willShowToken: NSObjectProtocol?
+    var willHideToken: NSObjectProtocol?
+    //옵저버 해제
+    deinit {
+        if let token = willShowToken {
+            NotificationCenter.default.removeObserver(token)
+            //화면이 제거되는 시점에 옵저버 해제
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -66,14 +74,57 @@ class ComposeViewController: UIViewController {
             //반대로 전달됨 메모가 없다면 그냥 쓰기 모드입니다. 그러면 Navigationtitle은 새 메모로 설정하고 textView는 빈 문자열로 초기화 하겠습니다.
         }
         memoTextView.delegate = self
+        
+        //키보드가 표시되기 전에 전달되는 notification 처리
+        willShowToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in
+            guard let strongSelf = self else { return }
+            //클로저에서 키보드 높이 만큼 여백을 추가, 고정된 값을 입력하지 않고 notification 전달된 값을 활용해서 높이를 전달
+            if let frame = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let height = frame.cgRectValue.height//height 속성에 키보드 높이 저장
+                //텍스트 뷰 여백 contentInset 설정, 현재설정되어 있는 값 변수에 저장
+                var inset = strongSelf.memoTextView.contentInset
+                inset.bottom = height// bottom 속성을 키보드 높이로 교체
+                //변경한 inset을 contentinset 속성에 저장
+                strongSelf.memoTextView.contentInset = inset
+                
+                //스크롤바에 같은크기의 여백 추가
+                inset = strongSelf.memoTextView.verticalScrollIndicatorInsets
+                inset.bottom = height
+                strongSelf.memoTextView.verticalScrollIndicatorInsets = inset
+            
+            }
+        })
+        //키보드가 사라질떄 여백을 제거 하는 코드 구현, 새로운 옵저버를 추가하는 코드는 addObserver 메소드를 호출하는 코드 다음에 추가해야됨
+        willHideToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in
+            guard let strongSelf = self else { return }
+            //현재 인셋을 변수에 저장 한다음에 바텀을 0 으로 바꿔주면 됩니다. 이전과 마찬가지로 스크롤 인디케이터도 함꼐 바꿔 줘야 합니다
+            var inset = strongSelf.memoTextView.contentInset
+            inset.bottom = 0
+            strongSelf.memoTextView.contentInset = inset
+            
+            inset = strongSelf.memoTextView.verticalScrollIndicatorInsets
+            inset.bottom = 0
+            strongSelf.memoTextView.verticalScrollIndicatorInsets = inset
+            //ios 13 부터는 scrollIndicatorInsets을 해제 하라고해서 해제 erticalScrollIndicatorInsets 교체 나중에 확인해볼것
+        })
+        
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //우리가 원하는 기능을 구현하기 위해서는 presentationController.delegate 추가로 설정해야합니다.
+        
+        // 화면에 진입하면 바로 키보드가 생성돼 바로 입력할수있도록 구현.textView 를 first Responder 로 만들어주면 텍스트뷰가 선택되고 키보드가 자동으로 표시됩니다.
+        memoTextView.becomeFirstResponder()
+        
        navigationController?.presentationController?.delegate = self
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //resignFirstResponder를 생성하면 입력포커스가 제거되고 키보드가 사라집니다
+        memoTextView.resignFirstResponder()
         navigationController?.presentationController?.delegate = nil
         //이렇게 하면 편집화면이 표시되기 직전에 delegate로 설정되었다가 편집화면이 사라지기 직전에 delegate가 해제 됩니다.
     }
