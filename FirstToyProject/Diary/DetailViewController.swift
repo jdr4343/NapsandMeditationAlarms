@@ -24,11 +24,16 @@ class DetailViewController: UIViewController {
     
     
     //공유 버튼 활성화
-    @IBAction func share(_ sender: Any) {
+    @IBAction func share(_ sender: UIBarButtonItem) {
         //UIActivityViewController로 공유기능 구현
         guard let memo = memo?.content else { return }
         
         let vc = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+        //아이패드 호환 팝오버 뷰 버튼 지정.
+        if let pc = vc.popoverPresentationController {
+            pc.barButtonItem = sender
+        }
+        
         present(vc, animated: true, completion: nil)//present 메소드를 이용해서 Activity를 화면에 표시하겠습니다.
     }
     
