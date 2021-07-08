@@ -90,25 +90,35 @@ class MemoListTableViewController: UITableViewController {
     }
     
 
-    /*
+    //스와이프 delete 구현중
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+        // 이메소드에서 트루를 리턴하면 편집기능이 활성화 됩니다. 편집을 활성화 한후에는 편집 스타일을 지정해야합니다.
     }
-    */
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            //메모를 삭제하는 코드 추가
+            let target = DataManager.shared.memoList[indexPath.row]// indexPath를 이용해 삭제할 메모를 상수에 저장 하겠습니다.
+            DataManager.shared.deleteMemo(target)//데이터베이스에서 삭제
+            DataManager.shared.memoList.remove(at: indexPath.row)//배열에서 삭제
+            //테이블 뷰에서 삭제 기능을 구현해야 한다면 조금전에 만든 3가지 코드를 전부 구현해야 합니다.
+            // Delete the row from the data sourc 테이블 뷰에서 셀을 삭제하는 코드
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            //에디트 스타일을 처리하는 코드
         }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

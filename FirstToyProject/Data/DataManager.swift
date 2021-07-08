@@ -51,7 +51,14 @@ class DataManager {// 싱글톤으로 구현
         saveContext()
     }
     
-    
+    //삭제 메소드 구현: 파라미터를 옵셔널로 선언하고 실제로 메모가 전달된 경우에만 삭제 해보겠습니다.
+    func deleteMemo(_ memo:Memo?) {
+        if let memo = memo {
+            mainContenxt.delete(memo)
+            saveContext()
+            //contenxt제공하는 delete 메소드를 호출한다음 context를 저장하면 실제로 메모가 삭제 됩니다.
+        }
+    }
     
     //Mark - Core Data stack
     

@@ -22,6 +22,26 @@ class DetailViewController: UIViewController {
  }()
     //이전 화면에서 전달한 메모를 저장할 속성을 추가 하겠습니다. 뷰 컨트롤러가 초기화 되는 시점에는 값이 없기때문에 옵셔널로 저장하겠습니다.
     
+    @IBAction func deleteMemo(_ sender: Any) {//확인 버튼 구현 , 경고창
+        let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제할까요?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] (action) in
+            //3번째 파라미터는 버튼을 선택했을떄 실행할 코드를 전달합니다.
+            //destructive 스타일을 전달하면 텍스트가 빨간색으로 전달됩니다.
+            
+            
+            DataManager.shared.deleteMemo(self?.memo)//현재화면에 표시되어 있는 메모도 파라미터로 전달하겠습니다. 이렇게 하면 현재표시되어 있는 메모가 삭제되는거니깐 화면을 메모를 삭제하고 이전화면으로 돌아가야합니다. 화면을 pop해보겠습니다.
+            self?.navigationController?.popViewController(animated: true)
+            //Datamanager에서 만든 deleteMemo 코드를 okAction 클로저에서 호출하겠습니다.
+        }
+        alert.addAction(okAction)//addAction 메소드를 호출해서 확인버튼을 alert에 추가하겠습니다.
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        //경고창을 화면에 표시하겠습니다.
+    }
+    
     
  //툴바에 있는 버튼을 탭할떄 Segue가 실행됩니다. memo 속성에 저장되어 있는 memo를 그대로 전달하겠습니다. 다만 앞에서 설명했던것처럼 navigationController거쳐서 전달하기 떄문에 최종뷰 Controller에 접근하는 코드가 좀 달라집니다.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
