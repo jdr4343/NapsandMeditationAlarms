@@ -22,6 +22,17 @@ class DetailViewController: UIViewController {
  }()
     //이전 화면에서 전달한 메모를 저장할 속성을 추가 하겠습니다. 뷰 컨트롤러가 초기화 되는 시점에는 값이 없기때문에 옵셔널로 저장하겠습니다.
     
+    
+    //공유 버튼 활성화
+    @IBAction func share(_ sender: Any) {
+        //UIActivityViewController로 공유기능 구현
+        guard let memo = memo?.content else { return }
+        
+        let vc = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+        present(vc, animated: true, completion: nil)//present 메소드를 이용해서 Activity를 화면에 표시하겠습니다.
+    }
+    
+    
     @IBAction func deleteMemo(_ sender: Any) {//확인 버튼 구현 , 경고창
         let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제할까요?", preferredStyle: .alert)
         
