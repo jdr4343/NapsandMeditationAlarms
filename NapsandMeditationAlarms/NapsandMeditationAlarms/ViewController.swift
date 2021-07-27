@@ -6,12 +6,15 @@
 //
 ///http://yoonbumtae.com/?p=3439 타이머
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
-    //시간 추가 생성
+//음악 플레이어 생성
     
+    @IBOutlet weak var musicPlayStopBtn: UIButton!
     
+//시간 추가 생성
     @IBOutlet weak var plus10MinBtn: UIButton!
     
     @IBOutlet weak var plus20Minbtn: UIButton!
@@ -22,9 +25,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var plus120Minbtn: UIButton!
     
-    
     @IBOutlet weak var add5MinBtn: UIButton!
-    
     
 //타이머 생성
     
@@ -34,16 +35,58 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var StartStopBtn: UIButton!
     
+    //타이머
     var timer: Timer = Timer()
     var count: Int = 0
     var timerCounting: Bool = false
-    
+    //오디오
+    var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
     }
    
+    
+    
+    @IBAction func musicPlayStopTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     @IBAction func resetTapped(_ sender: Any) {

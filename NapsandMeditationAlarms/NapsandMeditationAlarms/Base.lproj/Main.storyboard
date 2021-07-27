@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="무제" translatesAutoresizingMaskIntoConstraints="NO" id="AIO-ER-8kc">
-                                <rect key="frame" x="-58" y="-13" width="496" height="909"/>
+                                <rect key="frame" x="-128" y="-97" width="695" height="1124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5jr-4d-9sn">
@@ -116,13 +117,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-OL-qec">
-                                <rect key="frame" x="51" y="687" width="313" height="86"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="무제-1" translatesAutoresizingMaskIntoConstraints="NO" id="4yt-Tg-28r">
-                                <rect key="frame" x="20" y="686" width="374" height="128"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="세타파 6Ghz 집중,암기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mip-L2-vCm">
+                                <rect key="frame" x="121" y="708" width="195" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypu-so-rMC">
+                                <rect key="frame" x="155" y="751" width="105" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="110"/>
+                                <color key="tintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <imageReference key="image" image="playpause.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="musicPlayStopTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="ccC-fa-n36"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.3294117647" green="0.19215686269999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -132,17 +146,15 @@
                             <constraint firstItem="5jr-4d-9sn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="B28-EC-2zE"/>
                             <constraint firstItem="zcV-Ec-rHv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="FIt-GH-fOr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5jr-4d-9sn" secondAttribute="trailing" constant="20" id="XEz-BZ-uxc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BYe-OL-qec" secondAttribute="bottom" constant="89" id="Y5E-fh-H4p"/>
                             <constraint firstItem="zcV-Ec-rHv" firstAttribute="top" secondItem="5jr-4d-9sn" secondAttribute="bottom" constant="66" id="ZIL-qo-EUm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zcV-Ec-rHv" secondAttribute="trailing" constant="50" id="cTF-Xu-vgc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BYe-OL-qec" secondAttribute="trailing" constant="50" id="o3P-DV-ehd"/>
-                            <constraint firstItem="BYe-OL-qec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="uaq-Kl-Z1Q"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="StartStopBtn" destination="HWd-gh-fLZ" id="9xL-qy-fIX"/>
                         <outlet property="TimarLabel" destination="fMZ-rC-fkP" id="hXJ-B1-mx2"/>
                         <outlet property="add5MinBtn" destination="Lvv-io-H0I" id="LJf-Tx-q4Y"/>
+                        <outlet property="musicPlayStopBtn" destination="ypu-so-rMC" id="mGp-09-aMr"/>
                         <outlet property="plus10MinBtn" destination="S2v-sw-bzG" id="n89-2l-scl"/>
                         <outlet property="plus120Minbtn" destination="05x-GJ-Qx0" id="GyV-Wf-E07"/>
                         <outlet property="plus20Minbtn" destination="g62-l4-0ae" id="Fqn-8D-tin"/>
@@ -157,8 +169,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="playpause.fill" catalog="system" width="128" height="70"/>
         <image name="무제" width="781" height="1571.5"/>
-        <image name="무제-1" width="408" height="162"/>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -13,6 +13,7 @@
 		40258FF626AEE2630095F8E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40258FF426AEE2630095F8E0 /* Main.storyboard */; };
 		40258FF826AEE2650095F8E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40258FF726AEE2650095F8E0 /* Assets.xcassets */; };
 		40258FFB26AEE2650095F8E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40258FF926AEE2650095F8E0 /* LaunchScreen.storyboard */; };
+		4043701426B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4043701326B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		40258FF726AEE2650095F8E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40258FFA26AEE2650095F8E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40258FFC26AEE2650095F8E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4043701326B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "장기기억력을 높이는 6Hz 세타파.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		40258FE226AEE2630095F8E0 = {
 			isa = PBXGroup;
 			children = (
+				4043701226B091BE00584E65 /* Music */,
 				40258FED26AEE2630095F8E0 /* NapsandMeditationAlarms */,
 				40258FEC26AEE2630095F8E0 /* Products */,
 			);
@@ -65,6 +68,14 @@
 				40258FFC26AEE2650095F8E0 /* Info.plist */,
 			);
 			path = NapsandMeditationAlarms;
+			sourceTree = "<group>";
+		};
+		4043701226B091BE00584E65 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				4043701326B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4043701426B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 in Resources */,
 				40258FFB26AEE2650095F8E0 /* LaunchScreen.storyboard in Resources */,
 				40258FF826AEE2650095F8E0 /* Assets.xcassets in Resources */,
 				40258FF626AEE2630095F8E0 /* Main.storyboard in Resources */,
