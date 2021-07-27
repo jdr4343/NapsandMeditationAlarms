@@ -1,0 +1,6 @@
+framework module Pods_NapsandMeditationAlarms {
+  umbrella header "Pods-NapsandMeditationAlarms-umbrella.h"
+
+  export *
+  module * { export * }
+}

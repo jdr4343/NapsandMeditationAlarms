@@ -14,9 +14,11 @@
 		40258FF826AEE2650095F8E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40258FF726AEE2650095F8E0 /* Assets.xcassets */; };
 		40258FFB26AEE2650095F8E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40258FF926AEE2650095F8E0 /* LaunchScreen.storyboard */; };
 		4043701426B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4043701326B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 */; };
+		8599E30A6E8E4FEADD9E24A3 /* Pods_NapsandMeditationAlarms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C576173119E793EC4E76DD /* Pods_NapsandMeditationAlarms.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0607256AB82011A494E11A58 /* Pods-NapsandMeditationAlarms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NapsandMeditationAlarms.release.xcconfig"; path = "Target Support Files/Pods-NapsandMeditationAlarms/Pods-NapsandMeditationAlarms.release.xcconfig"; sourceTree = "<group>"; };
 		40258FEB26AEE2630095F8E0 /* NapsandMeditationAlarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NapsandMeditationAlarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40258FEE26AEE2630095F8E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40258FF026AEE2630095F8E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		40258FFA26AEE2650095F8E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40258FFC26AEE2650095F8E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4043701326B091FF00584E65 /* 장기기억력을 높이는 6Hz 세타파.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "장기기억력을 높이는 6Hz 세타파.mp3"; sourceTree = "<group>"; };
+		641AD4D99DACAC41CA7DDC7F /* Pods-NapsandMeditationAlarms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NapsandMeditationAlarms.debug.xcconfig"; path = "Target Support Files/Pods-NapsandMeditationAlarms/Pods-NapsandMeditationAlarms.debug.xcconfig"; sourceTree = "<group>"; };
+		78C576173119E793EC4E76DD /* Pods_NapsandMeditationAlarms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NapsandMeditationAlarms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8599E30A6E8E4FEADD9E24A3 /* Pods_NapsandMeditationAlarms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +50,8 @@
 				4043701226B091BE00584E65 /* Music */,
 				40258FED26AEE2630095F8E0 /* NapsandMeditationAlarms */,
 				40258FEC26AEE2630095F8E0 /* Products */,
+				D7472DE8809E81748DC41F1B /* Pods */,
+				9C99EBBECE9C9D7A0F1B9FFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +85,24 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
+		9C99EBBECE9C9D7A0F1B9FFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78C576173119E793EC4E76DD /* Pods_NapsandMeditationAlarms.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7472DE8809E81748DC41F1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				641AD4D99DACAC41CA7DDC7F /* Pods-NapsandMeditationAlarms.debug.xcconfig */,
+				0607256AB82011A494E11A58 /* Pods-NapsandMeditationAlarms.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40258FFF26AEE2650095F8E0 /* Build configuration list for PBXNativeTarget "NapsandMeditationAlarms" */;
 			buildPhases = (
+				27F7C98867C4D3B06A1F818F /* [CP] Check Pods Manifest.lock */,
 				40258FE726AEE2630095F8E0 /* Sources */,
 				40258FE826AEE2630095F8E0 /* Frameworks */,
 				40258FE926AEE2630095F8E0 /* Resources */,
+				0D2A125C2F3EAB537E0E9471 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,6 +170,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D2A125C2F3EAB537E0E9471 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NapsandMeditationAlarms/Pods-NapsandMeditationAlarms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NapsandMeditationAlarms/Pods-NapsandMeditationAlarms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NapsandMeditationAlarms/Pods-NapsandMeditationAlarms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27F7C98867C4D3B06A1F818F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NapsandMeditationAlarms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40258FE726AEE2630095F8E0 /* Sources */ = {
@@ -295,6 +364,7 @@
 		};
 		4025900026AEE2650095F8E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 641AD4D99DACAC41CA7DDC7F /* Pods-NapsandMeditationAlarms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		4025900126AEE2650095F8E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0607256AB82011A494E11A58 /* Pods-NapsandMeditationAlarms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

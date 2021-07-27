@@ -7,8 +7,11 @@
 ///http://yoonbumtae.com/?p=3439 타이머
 import UIKit
 import AVFoundation
+import SideMenu
 
 class ViewController: UIViewController {
+
+    
     
 //음악 플레이어 생성
     
@@ -35,6 +38,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var StartStopBtn: UIButton!
     
+    //사이드 메뉴 생성
+    var menu: SideMenuNavigationController?
+    
     //타이머
     var timer: Timer = Timer()
     var count: Int = 0
@@ -42,13 +48,27 @@ class ViewController: UIViewController {
     //오디오
     var player: AVAudioPlayer?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
+        //rootview 초기화
+        menu = SideMenuNavigationController(rootViewController: UIViewController())
+        //메뉴 오른쪽으로 구현
+        menu?.leftSide = true
+        
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
     }
-   
+   //사이드 메뉴 버튼 구현
+    
+    @IBAction func didTapMenu() {
+        present(menu!, animated: true)
+    }
     
     
+    
+    
+    //음악 재생
     @IBAction func musicPlayStopTapped() {
         if let player = player, player.isPlaying {
             //stop playback
@@ -82,13 +102,7 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-    
-    
+    //타이머 세팅 버튼
     @IBAction func resetTapped(_ sender: Any) {
         self.count = 0
         self.timer.invalidate()
@@ -179,7 +193,7 @@ class ViewController: UIViewController {
     
     
     
-    
+    //재생,스탑 버튼 구현
     @IBAction func startStopTapped(_ sender: Any) {
     
     if(timerCounting) {
@@ -203,7 +217,7 @@ class ViewController: UIViewController {
     }
     
     
-    
+    //시간과 레이블 스트링 구현
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
         
         return ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
