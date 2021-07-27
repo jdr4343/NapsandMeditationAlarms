@@ -53,10 +53,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
         //rootview 초기화
-        menu = SideMenuNavigationController(rootViewController: UIViewController())
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
         //메뉴 오른쪽으로 구현
         menu?.leftSide = true
-        
+        SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
     }
    //사이드 메뉴 버튼 구현
@@ -231,6 +231,29 @@ class ViewController: UIViewController {
         timeString += " : "
         timeString += String(format: "%02d", seconds)
         return timeString
+    }
+}
+
+//슬라이드 메뉴 뷰 구성 UI tableView 하위 클래스로 생성
+class MenuListController: UITableViewController {
+    //메뉴 배열 생성
+    var items = ["1", "2", "3", "4", "5", "6"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //행수 반환
+        return items.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = items[indexPath.row]
+        return cell
     }
 }
 
