@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         menu = SideMenuNavigationController(rootViewController: MenuListController())
         //메뉴 오른쪽으로 구현
         menu?.leftSide = true
+        menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
     }
@@ -238,9 +239,11 @@ class ViewController: UIViewController {
 class MenuListController: UITableViewController {
     //메뉴 배열 생성
     var items = ["1", "2", "3", "4", "5", "6"]
-    
+    let darkColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = darkColor
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -253,7 +256,13 @@ class MenuListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = darkColor
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        //do something
     }
 }
 
