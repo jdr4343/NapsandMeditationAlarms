@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="5jr-4d-9sn">
-                                <rect key="frame" x="20" y="64" width="374" height="387"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5jr-4d-9sn">
+                                <rect key="frame" x="20" y="64" width="374" height="388"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2v-sw-bzG">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -26,54 +26,103 @@
                                         <state key="normal" title="10 Min">
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="plus10MinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z00-P8-hlW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g62-l4-0ae">
-                                        <rect key="frame" x="0.0" y="113" width="374" height="48"/>
+                                        <rect key="frame" x="0.0" y="68" width="374" height="48"/>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.078431372550000003" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <state key="normal" title="20 Min">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="plus20MinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ZP-Qn-Y0Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGJ-Ll-P9J">
+                                        <rect key="frame" x="0.0" y="136" width="374" height="48"/>
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.078431372550000003" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <state key="normal" title="30 Min">
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="plus30MinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sg6-Ij-PUW"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGJ-Ll-P9J">
-                                        <rect key="frame" x="0.0" y="226" width="374" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCv-G3-8F1">
+                                        <rect key="frame" x="0.0" y="204" width="374" height="48"/>
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.078431372550000003" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <state key="normal" title="60 Min">
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="plus60MinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zxz-9e-Blt"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCv-G3-8F1">
-                                        <rect key="frame" x="0.0" y="339" width="374" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05x-GJ-Qx0">
+                                        <rect key="frame" x="0.0" y="272" width="374" height="48"/>
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.078431372550000003" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <state key="normal" title="120 Min">
+                                        <state key="normal" title="120 min">
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="plus120MinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UsE-F9-7lE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-io-H0I">
+                                        <rect key="frame" x="0.0" y="340" width="374" height="48"/>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.078431372550000003" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <state key="normal" title="add 5 min">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="add5MInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iii-aV-UwX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-hr-Tfc">
-                                <rect key="frame" x="186" y="639" width="45" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="reset">
-                                    <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-OL-qec">
-                                <rect key="frame" x="51" y="727" width="313" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="zcV-Ec-rHv">
+                                <rect key="frame" x="50" y="518" width="314" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMZ-rC-fkP">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsR-hr-Tfc">
+                                        <rect key="frame" x="0.0" y="35" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="reset">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ek8-GW-BVg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWd-gh-fLZ">
+                                        <rect key="frame" x="0.0" y="70" width="314" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="start">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startStopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CkS-x3-jFh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-OL-qec">
+                                <rect key="frame" x="51" y="687" width="313" height="86"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="musicplayer"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMZ-rC-fkP">
-                                <rect key="frame" x="136" y="571" width="145" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.3294117647" green="0.19215686269999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,9 +130,26 @@
                         <constraints>
                             <constraint firstItem="5jr-4d-9sn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1eU-cZ-yLA"/>
                             <constraint firstItem="5jr-4d-9sn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="B28-EC-2zE"/>
+                            <constraint firstItem="zcV-Ec-rHv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="FIt-GH-fOr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5jr-4d-9sn" secondAttribute="trailing" constant="20" id="XEz-BZ-uxc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BYe-OL-qec" secondAttribute="bottom" constant="89" id="Y5E-fh-H4p"/>
+                            <constraint firstItem="zcV-Ec-rHv" firstAttribute="top" secondItem="5jr-4d-9sn" secondAttribute="bottom" constant="66" id="ZIL-qo-EUm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zcV-Ec-rHv" secondAttribute="trailing" constant="50" id="cTF-Xu-vgc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BYe-OL-qec" secondAttribute="trailing" constant="50" id="o3P-DV-ehd"/>
+                            <constraint firstItem="BYe-OL-qec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="uaq-Kl-Z1Q"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="StartStopBtn" destination="HWd-gh-fLZ" id="9xL-qy-fIX"/>
+                        <outlet property="TimarLabel" destination="fMZ-rC-fkP" id="hXJ-B1-mx2"/>
+                        <outlet property="add5MinBtn" destination="Lvv-io-H0I" id="LJf-Tx-q4Y"/>
+                        <outlet property="plus10MinBtn" destination="S2v-sw-bzG" id="n89-2l-scl"/>
+                        <outlet property="plus120Minbtn" destination="05x-GJ-Qx0" id="GyV-Wf-E07"/>
+                        <outlet property="plus20Minbtn" destination="g62-l4-0ae" id="Fqn-8D-tin"/>
+                        <outlet property="plus30Minbtn" destination="oGJ-Ll-P9J" id="t0X-hC-zGM"/>
+                        <outlet property="plus60Minbtn" destination="cCv-G3-8F1" id="2NW-8u-ggR"/>
+                        <outlet property="resetBtn" destination="AsR-hr-Tfc" id="VIy-Bc-fzg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
