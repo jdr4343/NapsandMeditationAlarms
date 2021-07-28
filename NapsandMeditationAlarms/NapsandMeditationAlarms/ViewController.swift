@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     
 //음악 플레이어 생성
+
     
     @IBOutlet weak var musicPlayStopBtn: UIButton!
     
@@ -47,8 +48,10 @@ class ViewController: UIViewController {
     var timerCounting: Bool = false
     //오디오
     var player: AVAudioPlayer?
+    //unother
+   public var position: Int = 0
+   public var songs: [Song] = []
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
@@ -59,9 +62,22 @@ class ViewController: UIViewController {
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-    }
-   //사이드 메뉴 버튼 구현
+            }
     
+
+   
+    //unother
+//    func configure() {
+//       let song = songs[position]
+//        let url = Bundle.main.path(forResource: song.name, ofType: "mp3")
+//    }
+    
+    
+    
+    
+    
+    
+   //사이드 메뉴 버튼 구현
     @IBAction func didTapMenu() {
         present(menu!, animated: true)
     }
@@ -69,14 +85,18 @@ class ViewController: UIViewController {
     
     
     
+    
+    
+    
     //음악 재생
     @IBAction func musicPlayStopTapped() {
+        let song = songs[position]
         if let player = player, player.isPlaying {
             //stop playback
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -84,7 +104,7 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                player = try AVAudioPlayer(contentsOf: URL(string: urlString)!)
                 
                 guard let player = player else {
                     return
@@ -241,12 +261,10 @@ class MenuListController: UITableViewController {
     @IBOutlet var musicTable: UITableView!
         
     
-    
-    
-    
-    
     //메뉴 배열 생성
     var songs = [Song]()
+    //셀설정
+    
     let darkColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
         
     override func viewDidLoad() {
@@ -259,9 +277,8 @@ class MenuListController: UITableViewController {
         
     }
     func configureSongs() {
-        songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
-        songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
-        songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
+        songs.append(Song(name: "장기기억력을 높이는 6Hz 세타파"))
+    
     }
     //셀 높이 조절
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -274,35 +291,34 @@ class MenuListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         let song = songs[indexPath.row]
         
-       
-        cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
-    
-        
-        
         cell.textLabel?.text = song.name
-        cell.detailTextLabel?.text = song.account
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.textColor = .white
         cell.backgroundColor = darkColor
         
        //글자 크기 조정
-        cell.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 16)
-        cell.detailTextLabel?.font = UIFont(name: "Helvetica", size: 14)
+        cell.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 12 )
+        
+        
+        
         
         return cell
         //cell identifier을 지정을 못해주네..
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         //present the player
         let position = indexPath.row
-        guard let vc = storyboard?.instantiateViewController(identifier: "player") else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "player") as? ViewController else {
             return
         }
+        vc.songs = songs
+        vc.position = position
         present(vc, animated: true)
     }
 }
@@ -310,5 +326,5 @@ class MenuListController: UITableViewController {
 
 struct Song {
     let name: String
-    let account: String
+  
 }
