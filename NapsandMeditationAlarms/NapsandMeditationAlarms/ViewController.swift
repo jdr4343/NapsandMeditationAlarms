@@ -263,15 +263,24 @@ class MenuListController: UITableViewController {
         songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
         songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
     }
-    
+    //셀 높이 조절
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //행수 반환
         return songs.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let song = songs[indexPath.row]
+        
+       
+        cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
+    
+        
         
         cell.textLabel?.text = song.name
         cell.detailTextLabel?.text = song.account
