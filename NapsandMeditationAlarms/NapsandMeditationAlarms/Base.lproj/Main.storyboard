@@ -167,6 +167,7 @@
                         <outlet property="StartStopBtn" destination="HWd-gh-fLZ" id="9xL-qy-fIX"/>
                         <outlet property="TimarLabel" destination="fMZ-rC-fkP" id="hXJ-B1-mx2"/>
                         <outlet property="add5MinBtn" destination="Lvv-io-H0I" id="LJf-Tx-q4Y"/>
+                        <outlet property="holder" destination="8bC-Xf-vdC" id="WQO-fy-hc0"/>
                         <outlet property="musicPlayStopBtn" destination="ypu-so-rMC" id="mGp-09-aMr"/>
                         <outlet property="plus10MinBtn" destination="S2v-sw-bzG" id="n89-2l-scl"/>
                         <outlet property="plus120Minbtn" destination="05x-GJ-Qx0" id="GyV-Wf-E07"/>

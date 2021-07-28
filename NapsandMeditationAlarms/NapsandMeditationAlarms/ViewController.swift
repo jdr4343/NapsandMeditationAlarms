@@ -11,7 +11,7 @@ import SideMenu
 
 class ViewController: UIViewController {
 
-    
+    @IBOutlet var holder: UIView!
     
 //음악 플레이어 생성
 
@@ -62,15 +62,34 @@ class ViewController: UIViewController {
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        
+        print(songs)
             }
     
 
    
     //unother
-//    func configure() {
-//       let song = songs[position]
-//        let url = Bundle.main.path(forResource: song.name, ofType: "mp3")
-//    }
+    func configure() {
+       let song = songs[position]
+        let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
+        do {
+           try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+
+            guard let urlString = urlString else {
+                return
+            }
+            player = try AVAudioPlayer(contentsOf: URL(string: urlString)!)
+
+            guard let player = player else {
+                return
+            }
+            player.play()
+        }
+        catch {
+            print("오류가 났어 오류가 이런 젠장!!!")
+        }
+    }
     
     
     
@@ -89,34 +108,34 @@ class ViewController: UIViewController {
     
     
     //음악 재생
-    @IBAction func musicPlayStopTapped() {
-        let song = songs[position]
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
-            // set up player, and play
-            let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
-            do {
-               try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
-                guard let urlString = urlString else {
-                    return
-                }
-                player = try AVAudioPlayer(contentsOf: URL(string: urlString)!)
-                
-                guard let player = player else {
-                    return
-                }
-                player.play()
-            }
-            catch {
-                print("오류가 났어 오류가 이런 젠장!!!")
-            }
-        
-        }
-    }
+//    @IBAction func musicPlayStopTapped() {
+//        let song = songs[position]
+//        if let player = player, player.isPlaying {
+//            //stop playback
+//            player.stop()
+//        } else {
+//            // set up player, and play
+//            let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
+//            do {
+//               try AVAudioSession.sharedInstance().setMode(.default)
+//                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+//
+//                guard let urlString = urlString else {
+//                    return
+//                }
+//                player = try AVAudioPlayer(contentsOf: URL(string: urlString)!)
+//
+//                guard let player = player else {
+//                    return
+//                }
+//                player.play()
+//            }
+//            catch {
+//                print("오류가 났어 오류가 이런 젠장!!!")
+//            }
+//
+//        }
+//    }
     
     
     
@@ -278,6 +297,7 @@ class MenuListController: UITableViewController {
     }
     func configureSongs() {
         songs.append(Song(name: "장기기억력을 높이는 6Hz 세타파"))
+        songs.append(Song(name: "회복 수면2 Hz델타파"))
     
     }
     //셀 높이 조절
