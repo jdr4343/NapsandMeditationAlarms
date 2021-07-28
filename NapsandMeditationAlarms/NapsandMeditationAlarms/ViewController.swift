@@ -237,32 +237,69 @@ class ViewController: UIViewController {
 
 //슬라이드 메뉴 뷰 구성 UI tableView 하위 클래스로 생성
 class MenuListController: UITableViewController {
+    
+    @IBOutlet var musicTable: UITableView!
+        
+    
+    
+    
+    
+    
     //메뉴 배열 생성
-    var items = ["1", "2", "3", "4", "5", "6"]
+    var songs = [Song]()
     let darkColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSongs()
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.backgroundColor = darkColor
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
     }
-    
+    func configureSongs() {
+        songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
+        songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
+        songs.append(Song(name: "6Hz 세타파", account: "장기기억력을 높이는"))
+    }
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //행수 반환
-        return items.count
+        return songs.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = items[indexPath.row]
+        let song = songs[indexPath.row]
+        
+        cell.textLabel?.text = song.name
+        cell.detailTextLabel?.text = song.account
+        cell.accessoryType = .disclosureIndicator
         cell.textLabel?.textColor = .white
         cell.backgroundColor = darkColor
+        
+       //글자 크기 조정
+        cell.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 16)
+        cell.detailTextLabel?.font = UIFont(name: "Helvetica", size: 14)
+        
         return cell
+        //cell identifier을 지정을 못해주네..
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //do something
+        
+        //present the player
+        let position = indexPath.row
+        guard let vc = storyboard?.instantiateViewController(identifier: "player") else {
+            return
+        }
+        present(vc, animated: true)
     }
 }
 
+
+struct Song {
+    let name: String
+    let account: String
+}
