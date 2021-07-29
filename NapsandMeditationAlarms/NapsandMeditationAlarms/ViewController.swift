@@ -82,40 +82,6 @@ class ViewController: UIViewController {
     
     
     //음악 재생
-    @IBAction func musicPlayStopTapped() {
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
-            // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
-            do {
-               try AVAudioSession.sharedInstance().setMode(.default)
-                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
-                guard let urlString = urlString else {
-                    return
-                }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-                
-                guard let player = player else {
-                    return
-                }
-                player.play()
-            }
-            catch {
-                print("오류가 났어 오류가 이런 젠장!!!")
-            }
-        
-        }
-    }
-    //불 https://www.youtube.com/watch?v=N_g3AiXF-q8
-    //파도 https://www.youtube.com/watch?v=HFdvqNrL-7M
-    //자연 https://www.youtube.com/watch?v=FtcFhABKdMY
-    //바람 https://www.youtube.com/watch?v=09mQW9ijOHg
-    //연필 https://www.youtube.com/watch?v=pVVINnUhMxg&t=2231s
-    //빗소리 https://www.youtube.com/watch?v=HrO74lj5QBs
-    //키보드 https://www.youtube.com/watch?v=frlCGmPcLFw&list=PLnVlRUss9rndgEPLCbnA4ouTG8BYmrM0Y&index=3
     
     @IBAction func fireTapped() {
         if let player = player, player.isPlaying {
@@ -123,7 +89,7 @@ class ViewController: UIViewController {
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "불", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -144,13 +110,17 @@ class ViewController: UIViewController {
         
         }
     }
+    
+    
     @IBAction func rainTapped() {
+    
+    
         if let player = player, player.isPlaying {
             //stop playback
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "비", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -177,7 +147,7 @@ class ViewController: UIViewController {
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "파도소리", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -198,13 +168,16 @@ class ViewController: UIViewController {
         
         }
     }
+    
+    
     @IBAction func pencilTapped() {
+  
         if let player = player, player.isPlaying {
             //stop playback
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "연필", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -225,13 +198,16 @@ class ViewController: UIViewController {
         
         }
     }
+    
     @IBAction func forestTapped() {
+    
+  
         if let player = player, player.isPlaying {
             //stop playback
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "숲", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -254,12 +230,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func windTapped() {
+   
         if let player = player, player.isPlaying {
             //stop playback
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "바람소리", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
@@ -286,7 +263,7 @@ class ViewController: UIViewController {
             player.stop()
         } else {
             // set up player, and play
-            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            let urlString = Bundle.main.path(forResource: "키보드", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
