@@ -7,7 +7,7 @@
 ///http://yoonbumtae.com/?p=3439 타이머
 import UIKit
 import AVFoundation
-import SideMenu
+
 
 class ViewController: UIViewController {
 
@@ -38,8 +38,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var StartStopBtn: UIButton!
     
-    //사이드 메뉴 생성
-    var menu: SideMenuNavigationController?
+//    //사이드 메뉴 생성
+//    var menu: SideMenuNavigationController?
     
     //타이머
     var timer: Timer = Timer()
@@ -52,19 +52,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
-        //rootview 초기화
-        menu = SideMenuNavigationController(rootViewController: MenuListController())
-        //메뉴 오른쪽으로 구현
-        menu?.leftSide = true
-        menu?.setNavigationBarHidden(true, animated: false)
-        SideMenuManager.default.leftMenuNavigationController = menu
-        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+       
     }
    //사이드 메뉴 버튼 구현
     
-    @IBAction func didTapMenu() {
-        present(menu!, animated: true)
-    }
+  
     
     
     
@@ -241,101 +233,3 @@ class ViewController: UIViewController {
 
 
 
-//슬라이드 메뉴 뷰 구성 UI tableView 하위 클래스로 생성
-class MenuListController: UITableViewController {
-    //이곳에
-    
-    var position: Int = 0
-    var player: AVAudioPlayer?
-    //메뉴 배열 생성
-    var songs = [Song]()
-    //셀설정
-    
-    let darkColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureSongs()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = darkColor
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-    
-    
-    func configure() {
-        let song = songs[position]
-        let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
-        do {
-           try AVAudioSession.sharedInstance().setMode(.default)
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
-            guard let urlString = urlString else {
-                return
-            }
-            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-            
-            guard let player = player else {
-                return
-            }
-            player.play()
-        }
-        catch {
-            print("오류가 났어 오류가 이런 젠장!!!")
-        }
-    
-    }
-    
-    
-    
-    func configureSongs() {
-        songs.append(Song(name: "장기기억력을 높이는 6Hz 세타파"))
-        songs.append(Song(name: "회복 수면2 Hz델타파"))
-        
-    }
-    //셀 높이 조절
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //행수 반환
-        return songs.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let song = songs[indexPath.row]
-        
-        cell.textLabel?.text = song.name
-        cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.textColor = .white
-        cell.backgroundColor = darkColor
-        
-       //글자 크기 조정
-        cell.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 12)
-        
-        
-        
-        
-        return cell
-        //cell identifier을 지정을 못해주네..
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        configure()
-        //present the player
-        let position = indexPath.row
-        guard let vc = storyboard?.instantiateViewController(identifier: "player") else {
-            return
-        }
-        present(vc, animated: true)
-    }
-}
-
-
-struct Song {
-    let name: String
-  
-}
