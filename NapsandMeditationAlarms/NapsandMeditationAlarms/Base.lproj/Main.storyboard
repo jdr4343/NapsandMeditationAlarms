@@ -138,7 +138,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="rainTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wnn-rY-Y8C"/>
+                                            <action selector="rainTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="qby-nJ-B2l"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAm-3q-inI">
@@ -158,7 +158,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="pencilTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="jDY-tU-ZkC"/>
+                                            <action selector="pencilTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwR-ei-f5q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G78-DD-Vt9">
@@ -168,7 +168,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="forestTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YML-oo-g3a"/>
+                                            <action selector="forestTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5H-Hn-4c0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seq-p6-5h5">
@@ -178,7 +178,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="windTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6H-gT-iZk"/>
+                                            <action selector="windTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="cKZ-VM-5H9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMU-7l-mVf">
