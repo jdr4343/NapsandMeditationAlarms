@@ -13,9 +13,29 @@ class ViewController: UIViewController {
 
     
     
-//음악 플레이어 생성
+//백색소음 사운드 버튼 생성
     
-    @IBOutlet weak var musicPlayStopBtn: UIButton!
+    @IBOutlet weak var fireSound: UIButton!
+    
+    @IBOutlet weak var rainSound: UIButton!
+    
+    @IBOutlet weak var waveSound: UIButton!
+    
+    @IBOutlet weak var pencilSound: UIButton!
+    
+    @IBOutlet weak var forestSound: UIButton!
+    
+    @IBOutlet weak var windSound: UIButton!
+    
+    @IBOutlet weak var birdSound: UIButton!
+    
+//뇌 파동 사운드 버튼 생성
+    
+    
+    
+    
+    
+    
     
 //시간 추가 생성
     @IBOutlet weak var plus10MinBtn: UIButton!
@@ -89,8 +109,13 @@ class ViewController: UIViewController {
         
         }
     }
-    
-    
+    //불 https://www.youtube.com/watch?v=N_g3AiXF-q8
+    //파도 https://www.youtube.com/watch?v=HFdvqNrL-7M
+    //자연 https://www.youtube.com/watch?v=FtcFhABKdMY
+    //바람 https://www.youtube.com/watch?v=09mQW9ijOHg
+    //연필 https://www.youtube.com/watch?v=pVVINnUhMxg&t=2231s
+    //빗소리 https://www.youtube.com/watch?v=HrO74lj5QBs
+    //키보드 https://www.youtube.com/watch?v=frlCGmPcLFw&list=PLnVlRUss9rndgEPLCbnA4ouTG8BYmrM0Y&index=3
     
     
     
