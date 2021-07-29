@@ -117,7 +117,196 @@ class ViewController: UIViewController {
     //빗소리 https://www.youtube.com/watch?v=HrO74lj5QBs
     //키보드 https://www.youtube.com/watch?v=frlCGmPcLFw&list=PLnVlRUss9rndgEPLCbnA4ouTG8BYmrM0Y&index=3
     
+    @IBAction func fireTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
+    @IBAction func rainTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
+    @IBAction func waveTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
+    @IBAction func pencilTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
+    @IBAction func forestTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
     
+    @IBAction func windTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
+    @IBAction func keybordTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
     
     
     //타이머 세팅 버튼

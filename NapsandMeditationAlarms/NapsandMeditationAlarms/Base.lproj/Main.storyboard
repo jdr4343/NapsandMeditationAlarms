@@ -126,6 +126,9 @@
                                         <state key="normal" title="🔥">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="fireTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="V0p-Ru-u0h"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-TN-IhT">
                                         <rect key="frame" x="43" y="0.0" width="43.333333333333343" height="42"/>
@@ -134,6 +137,9 @@
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="rainTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wnn-rY-Y8C"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAm-3q-inI">
                                         <rect key="frame" x="86.333333333333343" y="0.0" width="43" height="42"/>
@@ -141,6 +147,9 @@
                                         <state key="normal" title="🌊">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="waveTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="nec-M8-uwu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgr-iJ-MyM">
                                         <rect key="frame" x="129.33333333333334" y="0.0" width="43.333333333333343" height="42"/>
@@ -148,6 +157,9 @@
                                         <state key="normal" title="📝">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pencilTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="jDY-tU-ZkC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G78-DD-Vt9">
                                         <rect key="frame" x="172.66666666666666" y="0.0" width="43" height="42"/>
@@ -155,6 +167,9 @@
                                         <state key="normal" title="🌳">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forestTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YML-oo-g3a"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seq-p6-5h5">
                                         <rect key="frame" x="215.66666666666669" y="0.0" width="43.333333333333314" height="42"/>
@@ -162,11 +177,17 @@
                                         <state key="normal" title="💨">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="windTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="N6H-gT-iZk"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMU-7l-mVf">
                                         <rect key="frame" x="259" y="0.0" width="43" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Asd"/>
+                                        <connections>
+                                            <action selector="keybordTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="dYT-3h-QG8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
