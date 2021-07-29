@@ -11,7 +11,9 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+//스탑버튼
     
+    @IBOutlet weak var StopBtn: UIButton!
     
 //백색소음 사운드 버튼 생성
     
@@ -67,6 +69,13 @@ class ViewController: UIViewController {
     var timerCounting: Bool = false
     //오디오
     var player: AVAudioPlayer?
+    var fire: AVAudioPlayer?
+    var wind: AVAudioPlayer?
+    var keybord: AVAudioPlayer?
+    var pencil: AVAudioPlayer?
+    var wave: AVAudioPlayer?
+    var forest: AVAudioPlayer?
+    var rain: AVAudioPlayer?
     
 
     override func viewDidLoad() {
@@ -84,10 +93,7 @@ class ViewController: UIViewController {
     //음악 재생
     
     @IBAction func fireTapped() {
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
+        
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "불", ofType: "mp3")
             do {
@@ -97,9 +103,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                fire = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = fire else {
                     return
                 }
                 player.play()
@@ -109,16 +115,10 @@ class ViewController: UIViewController {
             }
         
         }
-    }
+    
     
     
     @IBAction func rainTapped() {
-    
-    
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "비", ofType: "mp3")
             do {
@@ -128,9 +128,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                rain = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = rain else {
                     return
                 }
                 player.play()
@@ -140,12 +140,9 @@ class ViewController: UIViewController {
             }
         
         }
-    }
+    
     @IBAction func waveTapped() {
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
+       
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "파도소리", ofType: "mp3")
             do {
@@ -155,9 +152,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                wave = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = wave else {
                     return
                 }
                 player.play()
@@ -166,16 +163,11 @@ class ViewController: UIViewController {
                 print("오류가 났어 오류가 이런 젠장!!!")
             }
         
-        }
+        
     }
     
     
     @IBAction func pencilTapped() {
-  
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "연필", ofType: "mp3")
             do {
@@ -185,9 +177,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                pencil = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = pencil else {
                     return
                 }
                 player.play()
@@ -195,17 +187,10 @@ class ViewController: UIViewController {
             catch {
                 print("오류가 났어 오류가 이런 젠장!!!")
             }
-        
-        }
+
     }
     
     @IBAction func forestTapped() {
-    
-  
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "숲", ofType: "mp3")
             do {
@@ -215,9 +200,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                forest = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = forest else {
                     return
                 }
                 player.play()
@@ -226,15 +211,10 @@ class ViewController: UIViewController {
                 print("오류가 났어 오류가 이런 젠장!!!")
             }
         
-        }
+        
     }
     
     @IBAction func windTapped() {
-   
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "바람소리", ofType: "mp3")
             do {
@@ -244,9 +224,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                wind = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = wind else {
                     return
                 }
                 player.play()
@@ -256,12 +236,8 @@ class ViewController: UIViewController {
             }
         
         }
-    }
+    
     @IBAction func keybordTapped() {
-        if let player = player, player.isPlaying {
-            //stop playback
-            player.stop()
-        } else {
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "키보드", ofType: "mp3")
             do {
@@ -271,9 +247,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                keybord = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = player else {
+                guard let player = keybord else {
                     return
                 }
                 player.play()
@@ -283,7 +259,37 @@ class ViewController: UIViewController {
             }
         
         }
+    
+    //스탑버튼
+    
+    
+    @IBAction func stopTapped() {
+        if let player = fire, player.isPlaying {
+            player.stop()
+        }
+        if let player = wind, player.isPlaying {
+            player.stop()
+        }
+        if let player = rain, player.isPlaying {
+            player.stop()
+        }
+        if let player = pencil, player.isPlaying {
+            player.stop()
+        }
+        if let player = keybord, player.isPlaying {
+            player.stop()
+        }
+        if let player = wave, player.isPlaying {
+            player.stop()
+        }
+        if let player = forest, player.isPlaying {
+            player.stop()
+        }
     }
+    
+    
+    
+    
     
     
     //타이머 세팅 버튼
@@ -341,9 +347,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func plus60MinTapped(_ sender: Any) {
-        self.count = 3600
+        self.count = 5400
         self.timer.invalidate()
-        self.TimarLabel.text = self.makeTimeString(hours: 1, minute: 0, seconds: 0)
+        self.TimarLabel.text = self.makeTimeString(hours: 1, minute: 30, seconds: 0)
         
         if(timerCounting) {
             timerCounting = true
@@ -355,9 +361,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func plus120MinTapped(_ sender: Any) {
-        self.count = 7200
+        self.count = 10800
         self.timer.invalidate()
-        self.TimarLabel.text = self.makeTimeString(hours: 2, minute: 0, seconds: 0)
+        self.TimarLabel.text = self.makeTimeString(hours: 3, minute: 0, seconds: 0)
         
         if(timerCounting) {
             timerCounting = true
