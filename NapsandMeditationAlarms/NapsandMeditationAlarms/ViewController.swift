@@ -90,20 +90,20 @@ class ViewController: UIViewController {
     }
    //사이드 메뉴 버튼 구현
     
-  
-    
-    
+
+   
     
     
     //음악 재생
     
     @IBAction func fireTapped() {
-        
+        let audioSession = AVAudioSession.sharedInstance()
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "불", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 
                 guard let urlString = urlString else {
                     return
@@ -125,11 +125,12 @@ class ViewController: UIViewController {
     
     @IBAction func rainTapped() {
             // set up player, and play
+        let audioSession = AVAudioSession.sharedInstance()
             let urlString = Bundle.main.path(forResource: "비", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 guard let urlString = urlString else {
                     return
                 }
@@ -147,13 +148,13 @@ class ViewController: UIViewController {
         }
     
     @IBAction func waveTapped() {
-       
+        let audioSession = AVAudioSession.sharedInstance()
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "파도소리", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 guard let urlString = urlString else {
                     return
                 }
@@ -173,12 +174,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func pencilTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "연필", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 guard let urlString = urlString else {
                     return
                 }
@@ -196,12 +198,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func forestTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "숲", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 guard let urlString = urlString else {
                     return
                 }
@@ -220,12 +223,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func windTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "바람소리", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 guard let urlString = urlString else {
                     return
                 }
@@ -243,12 +247,13 @@ class ViewController: UIViewController {
         }
     
     @IBAction func keybordTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
             // set up player, and play
             let urlString = Bundle.main.path(forResource: "키보드", ofType: "mp3")
             do {
                try AVAudioSession.sharedInstance().setMode(.default)
                 try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                
+                try audioSession.setCategory(AVAudioSession.Category.playback)
                 guard let urlString = urlString else {
                     return
                 }
@@ -267,11 +272,12 @@ class ViewController: UIViewController {
     
    
     @IBAction func deltaTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
         let urlString = Bundle.main.path(forResource: "델타파", ofType: "mp3")
         do {
            try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
+            try audioSession.setCategory(AVAudioSession.Category.playback)
             guard let urlString = urlString else {
                 return
             }
@@ -289,11 +295,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func thetaTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
         let urlString = Bundle.main.path(forResource: "쎄타파", ofType: "mp3")
         do {
            try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
+            try audioSession.setCategory(AVAudioSession.Category.playback)
             guard let urlString = urlString else {
                 return
             }
@@ -311,11 +318,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func betaTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
         let urlString = Bundle.main.path(forResource: "베타파", ofType: "mp3")
         do {
            try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
+            try audioSession.setCategory(AVAudioSession.Category.playback)
             guard let urlString = urlString else {
                 return
             }
@@ -333,11 +341,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func alphaTapped() {
+        let audioSession = AVAudioSession.sharedInstance()
         let urlString = Bundle.main.path(forResource: "알파파", ofType: "mp3")
         do {
            try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
+            try audioSession.setCategory(AVAudioSession.Category.playback)
             guard let urlString = urlString else {
                 return
             }
@@ -495,7 +504,7 @@ class ViewController: UIViewController {
     
     //재생,스탑 버튼 구현
     @IBAction func startStopTapped(_ sender: Any) {
-    
+    SoundStop()
     if(timerCounting) {
         timerCounting = false
         timer.invalidate()
@@ -527,11 +536,12 @@ class ViewController: UIViewController {
     }
     func Alarm() {
         SoundStop()
+        let audioSession = AVAudioSession.sharedInstance()
         let urlString = Bundle.main.path(forResource: "삐삐삐삐알람소리", ofType: "mp3")
         do {
            try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
+            try audioSession.setCategory(AVAudioSession.Category.playback)
             guard let urlString = urlString else {
                 return
             }
