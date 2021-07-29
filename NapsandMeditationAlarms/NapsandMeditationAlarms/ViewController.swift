@@ -11,10 +11,9 @@ import SideMenu
 
 class ViewController: UIViewController {
 
-    @IBOutlet var holder: UIView!
+    
     
 //음악 플레이어 생성
-
     
     @IBOutlet weak var musicPlayStopBtn: UIButton!
     
@@ -48,10 +47,8 @@ class ViewController: UIViewController {
     var timerCounting: Bool = false
     //오디오
     var player: AVAudioPlayer?
-    //unother
-   public var position: Int = 0
-   public var songs: [Song] = []
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
@@ -62,41 +59,9 @@ class ViewController: UIViewController {
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-        
-        print(songs)
-            }
-    
-
-   
-    //unother
-    func configure() {
-       let song = songs[position]
-        let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
-        do {
-           try AVAudioSession.sharedInstance().setMode(.default)
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-
-            guard let urlString = urlString else {
-                return
-            }
-            player = try AVAudioPlayer(contentsOf: URL(string: urlString)!)
-
-            guard let player = player else {
-                return
-            }
-            player.play()
-        }
-        catch {
-            print("오류가 났어 오류가 이런 젠장!!!")
-        }
     }
-    
-    
-    
-    
-    
-    
    //사이드 메뉴 버튼 구현
+    
     @IBAction func didTapMenu() {
         present(menu!, animated: true)
     }
@@ -104,38 +69,34 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-    
     //음악 재생
-//    @IBAction func musicPlayStopTapped() {
-//        let song = songs[position]
-//        if let player = player, player.isPlaying {
-//            //stop playback
-//            player.stop()
-//        } else {
-//            // set up player, and play
-//            let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
-//            do {
-//               try AVAudioSession.sharedInstance().setMode(.default)
-//                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-//
-//                guard let urlString = urlString else {
-//                    return
-//                }
-//                player = try AVAudioPlayer(contentsOf: URL(string: urlString)!)
-//
-//                guard let player = player else {
-//                    return
-//                }
-//                player.play()
-//            }
-//            catch {
-//                print("오류가 났어 오류가 이런 젠장!!!")
-//            }
-//
-//        }
-//    }
+    @IBAction func musicPlayStopTapped() {
+        if let player = player, player.isPlaying {
+            //stop playback
+            player.stop()
+        } else {
+            // set up player, and play
+            let urlString = Bundle.main.path(forResource: "장기기억력을 높이는 6Hz 세타파", ofType: "mp3")
+            do {
+               try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else {
+                    return
+                }
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else {
+                    return
+                }
+                player.play()
+            }
+            catch {
+                print("오류가 났어 오류가 이런 젠장!!!")
+            }
+        
+        }
+    }
     
     
     
@@ -274,12 +235,18 @@ class ViewController: UIViewController {
     }
 }
 
+
+
+
+
+
+
 //슬라이드 메뉴 뷰 구성 UI tableView 하위 클래스로 생성
 class MenuListController: UITableViewController {
+    //이곳에
     
-    @IBOutlet var musicTable: UITableView!
-        
-    
+    var position: Int = 0
+    var player: AVAudioPlayer?
     //메뉴 배열 생성
     var songs = [Song]()
     //셀설정
@@ -293,12 +260,38 @@ class MenuListController: UITableViewController {
         tableView.dataSource = self
         tableView.backgroundColor = darkColor
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
     }
+    
+    
+    func configure() {
+        let song = songs[position]
+        let urlString = Bundle.main.path(forResource: song.name, ofType: "mp3")
+        do {
+           try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            
+            guard let urlString = urlString else {
+                return
+            }
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            
+            guard let player = player else {
+                return
+            }
+            player.play()
+        }
+        catch {
+            print("오류가 났어 오류가 이런 젠장!!!")
+        }
+    
+    }
+    
+    
+    
     func configureSongs() {
         songs.append(Song(name: "장기기억력을 높이는 6Hz 세타파"))
         songs.append(Song(name: "회복 수면2 Hz델타파"))
-    
+        
     }
     //셀 높이 조절
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -321,7 +314,7 @@ class MenuListController: UITableViewController {
         cell.backgroundColor = darkColor
         
        //글자 크기 조정
-        cell.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 12 )
+        cell.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 12)
         
         
         
@@ -329,16 +322,14 @@ class MenuListController: UITableViewController {
         return cell
         //cell identifier을 지정을 못해주네..
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        configure()
         //present the player
         let position = indexPath.row
-        guard let vc = storyboard?.instantiateViewController(identifier: "player") as? ViewController else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "player") else {
             return
         }
-        vc.songs = songs
-        vc.position = position
         present(vc, animated: true)
     }
 }

@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="player" id="BYZ-38-t0r" customClass="ViewController" customModule="NapsandMeditationAlarms" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NapsandMeditationAlarms" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,6 @@
                         <outlet property="StartStopBtn" destination="HWd-gh-fLZ" id="9xL-qy-fIX"/>
                         <outlet property="TimarLabel" destination="fMZ-rC-fkP" id="hXJ-B1-mx2"/>
                         <outlet property="add5MinBtn" destination="Lvv-io-H0I" id="LJf-Tx-q4Y"/>
-                        <outlet property="holder" destination="8bC-Xf-vdC" id="WQO-fy-hc0"/>
                         <outlet property="musicPlayStopBtn" destination="ypu-so-rMC" id="mGp-09-aMr"/>
                         <outlet property="plus10MinBtn" destination="S2v-sw-bzG" id="n89-2l-scl"/>
                         <outlet property="plus120Minbtn" destination="05x-GJ-Qx0" id="GyV-Wf-E07"/>
@@ -179,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="64.955357142857139"/>
+            <point key="canvasLocation" x="235" y="65"/>
         </scene>
     </scenes>
     <resources>
