@@ -2,7 +2,11 @@
 
 
 
-https://user-images.githubusercontent.com/85167689/127616957-f59f157e-7bde-4462-bfde-63962e15561d.mov
+
+
+https://user-images.githubusercontent.com/85167689/127617106-f7426159-d1dc-4f7d-a633-60c677f508ff.mov
+
+
 
 
 
@@ -206,6 +210,3 @@ AVFoundation import 해서 오디오 플레이어를 구현했습니다. fireTap
 
 urlString에서 sound이름을 설정하여 재생할 sound를 선택하였습니다.그리고 do catch블럭을 사용하여 별도의 디버깅에 대비하였고  위에서 설정한 fire AVAudioPlayer?에 여러가지 코드를 연결하였습니다.
 
-저도 배워가는 단계라 설명이 미흡해 별도의 깃 주소 남깁니다. 
-
-[](https://github.com/jdr4343/NapsandMeditationAlarms/tree/main/NapsandMeditationAlarms)
