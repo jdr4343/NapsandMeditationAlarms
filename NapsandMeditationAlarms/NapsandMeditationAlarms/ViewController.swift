@@ -7,7 +7,7 @@
 ///http://yoonbumtae.com/?p=3439 타이머
 import UIKit
 import AVFoundation
-
+//git 나쁜놈
 
 class ViewController: UIViewController {
 
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     var theta: AVAudioPlayer?
     var beta: AVAudioPlayer?
     var alpha: AVAudioPlayer?
-    
+    var mueum: AVAudioPlayer?
     override func viewDidLoad() {
         super.viewDidLoad()
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
@@ -505,6 +505,33 @@ class ViewController: UIViewController {
     //재생,스탑 버튼 구현
     @IBAction func startStopTapped(_ sender: Any) {
     SoundStop()
+//        //꼼수 얍시 앱을 출시할꺼라면 코드 삭제
+//        let audioSession = AVAudioSession.sharedInstance()
+//        let urlString = Bundle.main.path(forResource: "mueum", ofType: "mp3")
+//        do {
+//           try AVAudioSession.sharedInstance().setMode(.default)
+//            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+//            try audioSession.setCategory(AVAudioSession.Category.playback)
+//            guard let urlString = urlString else {
+//                return
+//            }
+//            mueum = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+//            
+//            guard let player = mueum else {
+//                return
+//            }
+//            player.play()
+//        }
+//        catch {
+//            print("오류가 났어 오류가 이런 젠장!!!")
+//        }
+//        //
+        
+        
+        
+        
+        
+        
     if(timerCounting) {
         timerCounting = false
         timer.invalidate()
