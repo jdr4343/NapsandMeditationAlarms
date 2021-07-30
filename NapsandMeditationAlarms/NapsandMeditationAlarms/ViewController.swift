@@ -402,6 +402,7 @@ class ViewController: UIViewController {
         if let player = beta, player.isPlaying {
             player.stop()
         }
+       
         if let player = alpha, player.isPlaying {
             player.stop()
     }
@@ -419,6 +420,10 @@ class ViewController: UIViewController {
         StartStopBtn.setTitle("Start", for: .normal)
         StartStopBtn.setTitleColor(UIColor.green, for: .normal)
         SoundStop()
+        if let player = mueum, player.isPlaying {
+            player.stop()
+            print("무음 종료")
+        }
     }
     
     
@@ -507,25 +512,26 @@ class ViewController: UIViewController {
     @IBAction func startStopTapped(_ sender: Any) {
     SoundStop()
 //        //꼼수 얍시 앱을 출시할꺼라면 코드 삭제
-//        let audioSession = AVAudioSession.sharedInstance()
-//        let urlString = Bundle.main.path(forResource: "mueum", ofType: "mp3")
-//        do {
-//           try AVAudioSession.sharedInstance().setMode(.default)
-//            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-//            try audioSession.setCategory(AVAudioSession.Category.playback)
-//            guard let urlString = urlString else {
-//                return
-//            }
-//            mueum = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-//            
-//            guard let player = mueum else {
-//                return
-//            }
-//            player.play()
-//        }
-//        catch {
-//            print("오류가 났어 오류가 이런 젠장!!!")
-//        }
+        print("무음")
+        let audioSession = AVAudioSession.sharedInstance()
+        let urlString = Bundle.main.path(forResource: "mueum", ofType: "mp3")
+        do {
+           try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.playback)
+            guard let urlString = urlString else {
+                return
+            }
+            mueum = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            
+            guard let player = mueum else {
+                return
+            }
+            player.play()
+        }
+        catch {
+            print("오류가 났어 오류가 이런 젠장!!!")
+        }
 //        //
         
         
@@ -553,6 +559,10 @@ class ViewController: UIViewController {
         TimarLabel.text = timeString
         if count == -1 {
             Alarm()
+            if let player = mueum, player.isPlaying {
+                player.stop()
+                print("무음 종료")
+            }
         }
         if count == -120 {
             Alarm()
