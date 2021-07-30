@@ -6,7 +6,7 @@
 
 https://user-images.githubusercontent.com/85167689/127617106-f7426159-d1dc-4f7d-a633-60c677f508ff.mov
 
-
+동영상이 안보일경우 사파리로 보면 보입니다.
 
 
 
