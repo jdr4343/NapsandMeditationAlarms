@@ -1,6 +1,10 @@
 # NapsandMeditationAlarms
 
-[https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63f936ff-72f5-4b9b-b0e2-6c280feead1e/myVideo.mov](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63f936ff-72f5-4b9b-b0e2-6c280feead1e/myVideo.mov)
+
+
+https://user-images.githubusercontent.com/85167689/127616957-f59f157e-7bde-4462-bfde-63962e15561d.mov
+
+
 
 간단한 시간 타이머 지정과 알람 그리고 각종 잠, 명상 혹은 공부에 도움되는 사운드들을 넣었고 그 사운드들을 섞어서 사용할수 있도록 했습니다. 
 
