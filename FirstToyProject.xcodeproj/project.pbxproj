@@ -13,6 +13,7 @@
 		4035C917267CC53900781320 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4035C915267CC53900781320 /* Main.storyboard */; };
 		4035C919267CC53A00781320 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4035C918267CC53A00781320 /* Assets.xcassets */; };
 		4035C91C267CC53A00781320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4035C91A267CC53A00781320 /* LaunchScreen.storyboard */; };
+		407A1F3D26CE1B320058F84D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407A1F3C26CE1B320058F84D /* ExternalAccessory.framework */; };
 		4082661A268F221600068FC9 /* InformationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40826619268F221600068FC9 /* InformationSetting.swift */; };
 		4082661C268F243700068FC9 /* MyInformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082661B268F243700068FC9 /* MyInformationTableViewController.swift */; };
 		4089C1292690148C0085A52A /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4089C1282690148C0085A52A /* ComposeViewController.swift */; };
@@ -33,6 +34,7 @@
 		4035C918267CC53A00781320 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4035C91B267CC53A00781320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4035C91D267CC53A00781320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407A1F3C26CE1B320058F84D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		40826619268F221600068FC9 /* InformationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSetting.swift; sourceTree = "<group>"; };
 		4082661B268F243700068FC9 /* MyInformationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationTableViewController.swift; sourceTree = "<group>"; };
 		4089C1282690148C0085A52A /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407A1F3D26CE1B320058F84D /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 			children = (
 				4035C90E267CC53900781320 /* FirstToyProject */,
 				4035C90D267CC53900781320 /* Products */,
+				407A1F3B26CE1B320058F84D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +96,14 @@
 				409018B52695B09B00B652A8 /* FirstToyProject.xcdatamodeld */,
 			);
 			path = FirstToyProject;
+			sourceTree = "<group>";
+		};
+		407A1F3B26CE1B320058F84D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				407A1F3C26CE1B320058F84D /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		40826615268F138A00068FC9 /* MyInformation */ = {
@@ -170,6 +182,9 @@
 		4035C904267CC53900781320 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
@@ -376,6 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = FirstToyProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L765CYF8SR;
 				INFOPLIST_FILE = FirstToyProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

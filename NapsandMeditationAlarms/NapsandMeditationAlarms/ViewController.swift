@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     //오디오
     var fire: AVAudioPlayer?
     var wind: AVAudioPlayer?
-    var keybord: AVAudioPlayer?
+    var keyboard: AVAudioPlayer?
     var pencil: AVAudioPlayer?
     var wave: AVAudioPlayer?
     var forest: AVAudioPlayer?
@@ -258,9 +258,9 @@ class ViewController: UIViewController {
                 guard let urlString = urlString else {
                     return
                 }
-                keybord = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                keyboard = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
                 
-                guard let player = keybord else {
+                guard let player = keyboard else {
                     return
                 }
                 player.play()
@@ -384,7 +384,7 @@ class ViewController: UIViewController {
         if let player = pencil, player.isPlaying {
             player.stop()
         }
-        if let player = keybord, player.isPlaying {
+        if let player = keyboard, player.isPlaying {
             player.stop()
         }
         if let player = wave, player.isPlaying {
